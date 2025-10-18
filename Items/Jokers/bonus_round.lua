@@ -8,10 +8,10 @@ local bonus_round = {
             retriggers = 1
         }
     },
-    rarity = 1,
+    rarity = 2,
     pos = { x = 8, y = 12},
     atlas = 'joker_atlas',
-    cost = 4,
+    cost = 5,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -24,11 +24,11 @@ local bonus_round = {
   
     calculate = function(self, card, context)
         if context.repetition and context.other_card then
-            if context.other_card.config.center == G.P_CENTERS["m_bonus"] then
+            if SMODS.get_enhancements(context.other_card)["m_bonus"] then
                 return {
                     message = localize('k_again_ex'),
                     repetitions = card.ability.extra.retriggers,
-                    card = context.other_card,
+                    card = card,
                 }
             end
         end

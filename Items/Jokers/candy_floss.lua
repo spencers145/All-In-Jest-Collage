@@ -5,14 +5,14 @@ local candy_floss = {
     key = "candy_floss",
     config = {
       extra = {
-        percent = 30,
+        percent = 40,
         percent_mod = 5
       }
     },
     rarity = 2,
     pos = { x = 1, y = 12},
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,

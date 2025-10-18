@@ -5,7 +5,7 @@ local pompey = {
     key = "pompey",
     config = {
       extra = {
-        xmult = 1.5
+        xmult = 1.75
       }
     },
     rarity = 4,

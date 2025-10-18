@@ -5,14 +5,14 @@ local hofnarr_the_barbarian = {
     key = "hofnarr_the_barbarian",
     config = {
       extra = {
-        mult = 10,
-        xmult = 10
+        xmult = 1.5,
+        bigxmult = 6
       }
     },
     rarity = 2,
     pos = { x = 11, y = 8},
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 8,
     unlocked = true,
     discovered = false,
     blueprint_compat = false,
@@ -20,7 +20,7 @@ local hofnarr_the_barbarian = {
 
     loc_vars = function(self, info_queue, card)
       info_queue[#info_queue+1] = {set = 'Other', key = 'showdown_blind'}
-      return { vars = {card.ability.extra.mult, card.ability.extra.xmult} }
+      return { vars = {card.ability.extra.xmult, card.ability.extra.bigxmult} }
     end,
 
     calculate = function(self, card, context)
@@ -38,12 +38,11 @@ local hofnarr_the_barbarian = {
       if context.joker_main then
         if math.fmod(G.GAME.round_resets.ante, 8) == 0 and G.GAME.blind:get_type() == 'Boss' then
           return {
-            mult = card.ability.extra.mult,
-            xmult = card.ability.extra.xmult,
+            xmult = card.ability.extra.bigxmult,
           }
         else
           return {
-            mult = card.ability.extra.mult,
+            xmult = card.ability.extra.xmult,
           }
         end
       end

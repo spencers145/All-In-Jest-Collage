@@ -6,13 +6,13 @@ local nature_tapes = {
     config = {
       extra = {
           cur_mult = 0,
-          mult_mod = 5
+          --mult_mod = 5
       }
     },
-    rarity = 3,
+    rarity = 2,
     pos = { x = 17, y = 2 },
     atlas = 'joker_atlas',
-    cost = 8,
+    cost = 6,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -29,11 +29,13 @@ local nature_tapes = {
   
     calculate = function(self, card, context)
         if context.using_consumeable and not context.blueprint then
-            if context.consumeable.ability.set == 'Planet' and context.consumeable.config.center.config.mult then
+            if context.consumeable.ability.set == 'Planet' then
+                local hand = context.consumeable.ability.consumeable.hand_type
                 SMODS.scale_card(card, {
 	                ref_table = card.ability.extra,
                     ref_value = "cur_mult",
-	                scalar_value = "mult_mod",
+	                scalar_table = G.GAME.hands[hand],
+                    scalar_value = "l_mult",
                     operation = '+',
                     scaling_message = {
 	                    message = localize('k_upgrade_ex'), 

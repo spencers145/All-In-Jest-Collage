@@ -6,10 +6,10 @@ local right_angle = {
     config = {
       
     },
-    rarity = 2,
+    rarity = 3,
     pos = { x = 12, y = 2 },
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = false,

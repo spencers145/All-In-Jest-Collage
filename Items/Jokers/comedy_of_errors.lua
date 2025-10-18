@@ -11,7 +11,7 @@ local comedy_of_errors = {
     rarity = 1,
     pos = { x = 5, y = 10},
     atlas = 'joker_atlas',
-    cost = 5,
+    cost = 6,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,

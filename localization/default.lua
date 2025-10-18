@@ -119,16 +119,16 @@ return {
                     '{C:attention}-1{} Joker Slot'
                 },
                 unlock = {
-                    'Unlock a',
-                    '{C:legendary,E:1}Legendary{} Joker',
+                    "Win {C:attention}10{} runs with",
+					"{C:attention,E:1}Collage{} installed"
                 }
             },
             b_aij_fabled_hidden = {
                 name = 'Fabled Deck',
                 text = {},
                 unlock = {
-                    'Unlock a {C:legendary,E:1}Legendary{}',
-                    'Joker',
+                    "Win {C:attention}10{} runs with",
+					"{C:attention,E:1}Collage{} installed"
                 }
             },
             b_aij_branching = {
@@ -906,7 +906,7 @@ return {
                 name = "Stellar",
                 text = {
                     "{C:chips}+#1#{} Chips and",
-                    "{C:mult}+#2#{} Mult per {C:attention}level{}",
+                    "{C:mult}+#2#{} Mult per {C:attention}base level{}",
                     "of played hand"
                 }
             },
@@ -1081,8 +1081,9 @@ return {
             j_aij_trypophobia = {
                 name = "Trypophobia",
                 text = {
-                    "{C:mult}+#1#{} Mult if scored hand",
-                    "contains only {C:attention}8s{}",
+                    "{C:mult}+#1#{} Mult per played {C:attention}8{}",
+                    "if scored hand contains",
+                    "only {C:attention}8s{}",
                 },
             },
             j_aij_rummikub = { name = "Rummikub", text = { "" } },
@@ -1154,7 +1155,7 @@ return {
                 },
             },
             j_aij_doodle = {
-                name = "Doodle",
+                name = "Notebook Doodle",
                 text = {
                     "{C:attention}Copies{} the {C:attention}abilities{} of",
                     "both adjacent {C:attention}Jokers{} on",
@@ -1210,10 +1211,10 @@ return {
             j_aij_pell_mel = { 
                 name = "Pell Mel", 
                 text = { 
-                    "{X:mult,C:white}X1{} Mult, gains {X:mult,C:white}X#1#{} Mult",
+                    {"{C:white,X:mult}X1{} Mult"},
+                    {"{C:white,X:mult}X#1#{} additional Mult",
                     "per {C:attention}unique{} suit in",
-                    "{C:attention}played hand",
-                    "{C:inactive,s:0.8}(Resets after hand scored)"
+                    "{C:attention}played hand"},
 
                 } 
             },
@@ -1221,29 +1222,31 @@ return {
             j_aij_krampus = {
                 name = "Krampus",
                 text = {
-                    "Scored {C:attention}Gold Cards{}",
-                    "turn into {C:attention}Stone Cards{}.",
-                    "{C:attention}Stone Cards{} earn",
-                    "{C:money}$#1#{} when scored"
+                    {"Scored {C:attention}Gold Cards{}",
+                    "turn into {C:attention}Stone Cards{}"},
+                    {"{C:attention}Stone Cards{} earn",
+                    "{C:money}$#1#{} when scored"}
                 },
             },
             j_aij_art_of_the_deal = { 
                 name = "Art of the Deal", 
                 text = { 
-                    "Gains {C:mult}+#2#{} Mult when",
+                    {"Gains {C:mult}+#2#{} Mult when",
                     "{C:money}money{} is earned",
-                    "Resets if you have",
-                    "{C:money}$0{} or less",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"},
+                    {"Resets if you have",
+                    "{C:money}$0{} or less"},
+                    
                 } 
             },
             j_aij_word_art = { 
-                name = "Word Art", 
-                text = { 
-                    "{C:mult}+#1#{} Mult per {C:attention}Ace{},",
-                    "{C:attention}King{}, {C:attention}Queen{}, or {C:attention}Jack{}",
-                    "in played hand"
-                } 
+                name = "Word Art",
+                text = {
+                    {"{C:white,X:mult}X1{} Mult"},
+                    {"{C:white,X:mult}X#1#{} additional Mult per",
+                    "per {C:attention}lettered{} card {C:inactive}(A, K, Q, J){}",
+                    "in {C:attention}played hand"}
+                }
             },
             j_aij_atom = {
                 name = "Atom",
@@ -1446,19 +1449,19 @@ return {
             },
             j_aij_nature_tapes = { 
                 name = "Nature Tapes", 
-                text = { 
-                    "When a {C:mult}Mult{} type {C:planet}planet",
-                    "card is used, this joker",
-                    "gains {C:mult}+#1#{} Mult",
+                text = {
+                    "When a {C:planet}Planet{} card",
+                    "levels up a hand, this Joker gains",
+                    "as much {C:mult}Mult{} as the hand does",
                     "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)",
                 } 
             },
             j_aij_low_priest = { 
                 name = "Low Priest", 
-                text = { 
-                    "{C:mult}+#1#{} Mult,",
-                    "{C:mult}-#2#{} Mult per {C:attention}level{}",
-                    "of played hand"
+                text = {
+                    {"{C:white,X:mult}X#1#{} Mult"},
+                    {"{C:white,X:mult}-X#2#{} Mult per {C:attention}level{}",
+                    "of played hand"}
                 } 
             },
             j_aij_oil_and_water = { name = "Oil and Water", text = { "" } },
@@ -1512,11 +1515,12 @@ return {
             j_aij_bad_apple = { 
                 name = "Bad Apple", 
                 text = { 
-                    "This Joker gains {X:mult,C:white}X#2#{} Mult",
-                    "if {C:attention}scored hand{} contains ",
-                    "{C:attention}#4#{} {C:spades}Dark{} suits and {C:attention}#3#{} {C:hearts}Light{} suits",
-                    "{C:inactive,s:0.8}(Proportion changes at end of round)",
-                    "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult)"
+                    {"This Joker gains {X:mult,C:white}X#2#{} Mult",
+                    "if {C:attention}scored hand{} contains",
+                    "{C:attention}#4#{} {C:paperback_dark_suit}Dark{} suits and {C:attention}#3#{} {C:paperback_light_suit}Light{} suits",
+                    "{C:inactive}(Currently {X:mult,C:white}X#1#{} {C:inactive}Mult)"},
+                    {"Proportion changes",
+                    "at end of round",}
                 } 
             },
             j_aij_dim_bulb = {
@@ -1540,8 +1544,8 @@ return {
             j_aij_null_joker = {
                 name = "Null Joker",
                 text = {
-                    "Sets all {C:green}probabilities{}",
-                    "to {C:attention}zero{}"
+                    "{X:green,C:white}X#1#{} to all listed",
+                    "{C:green}probabilities{}",
                 },
             },
             j_aij_magick_joker = {
@@ -1695,6 +1699,15 @@ return {
                     "beaten in a {C:attention}single hand{}"
                 },
             },
+            j_aij_pinhead_unlock_helper = {
+                name = "Pinhead",
+                text = {
+                    {"Earn {C:money}$#1#{} if {C:attention}Blind{} is",
+                    "beaten in a {C:attention}single hand{}"},
+                    {"{C:dark_edition,E:1}This Joker might help",
+                    "{C:dark_edition,E:1}you unlock something..."},
+                },
+            },
             j_aij_saltimbanco = { 
                 name = "Saltimbanco", 
                 text = { 
@@ -1716,10 +1729,15 @@ return {
             },
             j_aij_void = { 
                 name = "Void", 
-                text = { 
-                    "{X:mult,C:white}X#1#{} Mult if no {C:planet}Planet{} Cards",
-                    "have been used this {C:attention}Ante",
+                text = {
+                    {
+                    "{X:mult,C:white}X#1#{} Mult if no",
+                    "{C:planet}Planet{} Cards are used"
+                    },
+                    {
+                    "Resets each {C:attention}Ante",
                     "{C:inactive}#2#"
+                    }
                 } 
             },
             j_aij_kasperle = { 
@@ -1789,7 +1807,7 @@ return {
                 text = {
                     "This {C:attention}Joker{} gains {C:chips}+#2#{} Chips",
                     "if played hand contains",
-                    "at least three {C:attention}2s{}",
+                    "at least three {C:attention}3s{}",
                     "{C:inactive}(Currently{} {C:chips}+#1#{} {C:inactive}Chips){}"
                 },
             },
@@ -1879,10 +1897,10 @@ return {
             j_aij_honker = { 
                 name = "Honker", 
                 text = { 
-                    "This joker gains {C:red}+#1#{} Mult",
+                    "This Joker gains {C:white,X:mult}X#1#{} Mult",
                     "when a {C:attention}Mult Card{} is",
                     "scored",
-                    "{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+                    "{C:inactive}(Currently {C:white,X:mult}X#2#{C:inactive} Mult)",
                 } 
             },
             j_aij_mummy = { name = "Mummy", text = { "" } },
@@ -2037,7 +2055,7 @@ return {
             j_aij_tipteerer = {
                 name = "Tipteerer",
                 text = {
-                    "Earn {C:attention}20%{} of the {C:money}sell value{}",
+                    "Earn {C:attention}30%{} of the {C:money}sell value{}",
                     "of other {C:attention}Jokers{}, rounded up,",
                     "at end of {C:attention}round{}",
                     "{C:inactive}(Currently{} {C:money}$#1#{}{C:inactive}){}"
@@ -2176,10 +2194,9 @@ return {
             j_aij_feedback_form = { 
                 name = "Feedback Form", 
                 text = { 
-                    "Each {C:attention}scoring{} card gives {C:mult}+#1#",
-                    "Mult If all {C:attention}scoring{} cards in",
-                    "{C:attention}played{} hand have different",
-                    "{C:attention}enhancements" 
+                    "{C:mult}+#1#{} Mult per scoring",
+                    "card if no scored cards",
+                    "share an {C:attention}enhancement"
                 } 
             },
             j_aij_stultor = { 
@@ -2336,10 +2353,10 @@ return {
             j_aij_mr_lonely = {
                 name = "Mr. Lonely",
                 text = {
-                    "This Joker gains {C:chips}+#1# Chips",
+                    "This Joker gains {C:mult}+#1#{} Mult",
                     "per empty {C:attention}Joker slot{}",
                     "at end of {C:attention}round{}",
-                    "{C:inactive}(Currently{} {C:chips}+#2#{C:inactive} Chips)"
+                    "{C:inactive}(Currently{} {C:mult}+#2#{C:inactive} Mult)"
                 },
             },
             j_aij_spiders_georg = { 
@@ -2466,9 +2483,10 @@ return {
             j_aij_hofnarr_the_barbarian = {
                 name = "Hofnarr the Barbarian",
                 text = {
-                    "{C:mult}+#1#{} Mult",
-                    "On {C:attention}Showdown Boss Blinds{}, {C:attention}disables{}",
-                    "them and gives {X:mult,C:white}X#2#{} Mult"
+                    {"{C:white,X:mult}X#1#{} Mult"},
+                    {"On {C:attention}Showdown Boss Blinds{},",
+                    "{C:attention}disables{} them and instead",
+                    "gives {X:mult,C:white}X#2#{} Mult"}
                 },
             },
             j_aij_histrio = { 
@@ -2554,11 +2572,10 @@ return {
             j_aij_jester_zombie = { 
                 name = "Jester Zombie", 
                 text = { 
-                    "Retriggers all {C:attention}scored{} cards",
-                    "if a {C:attention}playing card{} has been",
-                    "{C:red}destroyed{} this round",
-                    "{C:inactive}#1#{}"
-                } 
+                    "{C:green}#1# in #2#{} chance to {C:purple,E:1}rot{}",
+                    "a random consumable card in",
+                    "opened {C:attention}booster packs",
+                    }
             },
             j_aij_richie_rich = { name = "Richie Rich", text = { "" } },
             j_aij_devil_deal = { 
@@ -2670,11 +2687,9 @@ return {
                 name = "Fuzzy Joker",
                 text = { 
                     "Rounds {C:mult}Mult{} upward to the",
-                    "next power of {C:attention}2" 
+                    "next power of {C:attention}4" 
                 } 
             },
-            j_aij_saucy_jacky = { name = "Saucy Jacky", text = { "" } },
-            j_aij_funny_phone = { name = "Funny Phone", text = { "" } },
             j_aij_taggart = { 
                 name = "Taggart", 
                 text = { 
@@ -2784,10 +2799,11 @@ return {
             j_aij_le_fils_de_banane = { 
                 name = "Le fils de Banane", 
                 text = { 
-                    "Scored {C:attention}face{} cards give {C:mult}+#3#",
-                    "Mult but have a {C:green}#1# in #2#{}",
-                    "chance to {C:red}destroy",
-                    "themselves" 
+                    {"Scored {C:attention}face{} cards",
+                    "give {C:mult}+#3#{} Mult"},
+                    {"Scored {C:attention}face{} cards",
+                    "have a {C:green}#1# in #2#{} chance",
+                    "to be {C:red}destroyed"},
                 } 
             },
             j_aij_pygmalion = { 
@@ -2803,8 +2819,7 @@ return {
                 name = "Tetrominoker", 
                 text = { 
                     "Scoring {C:attention}4s{} have a {C:green}#1# in #2#{}",
-                    "chance to create a {C:attention}copy{} of",
-                    "themselves" 
+                    "chance to give {C:white,X:mult}X4{} Mult"
                 } 
             },
             j_aij_mr_catfish = { 
@@ -2816,19 +2831,20 @@ return {
             },
             j_aij_angel_number = { 
                 name = "Angel Number", 
-                text = { 
-                    "{C:attention}+#1#{} to all {C:green}listed",
-                    "{C:green}probabilities{} for each {C:attention}7",
-                    "scored this hand. {C:attention}Resets",
-                    "each hand" 
+                text = {
+                    {"Each hand, {C:attention}+#1#{} to all",
+                    "{C:green}listed probabilities{} for each",
+                    "{C:attention}7{} that will be scored"},
+                    {"Resets each hand"}
                 } 
             },
             j_aij_doctors_orders = { 
                 name = "Doctor's Orders", 
                 text = { 
-                    "{X:mult,C:white}X#1#{} Mult per {C:attention}9{} in the played",
-                    "hand, {C:red}self-destructs{} if no",
-                    "{C:attention}9s{} were played"
+                    {"{X:mult,C:white}X#1#{} Mult per {C:attention}9{}",
+                    "in played hand"},
+                    {"{C:red}self-destructs{} if no",
+                    "{C:attention}9s{} were played"}
                 } 
             },
             j_aij_blue_eyes_white_joker = { 
@@ -2884,9 +2900,10 @@ return {
             },
             j_aij_stagehand = { 
                 name = "Stagehand", 
-                text = { 
-                    "All {C:attention}Jokers{} give",
-                    "{X:mult,C:white}X#1#{} Mult"
+                text = {
+                    "At end of round,",
+                    "{C:money}$1{} for each {C:attention}Joker",
+                    "and each {C:attention}Consumable"
                 } 
             },
             j_aij_the_mermaid = { name = "The Mermaid", text = { "" } },
@@ -2931,12 +2948,12 @@ return {
             j_aij_gematria = { name = "Gematria", text = { "" } },
             j_aij_bingo_card = { 
                 name = "Bingo Card", 
-                text = { 
+                text = {
                     "Scoring {C:attention}lucky{} cards have a",
                     "{C:green}#1# in #2#{} chance for {X:mult,C:white}X#5#{} Mult",
                     "and a {C:green}#3# in #4#{} chance to",
                     "retrigger" 
-                } 
+                }
             },
             j_aij_fish_fingers = { 
                 name = "Fish Fingers", 
@@ -3027,33 +3044,17 @@ return {
             j_aij_astrologer = { 
                 name = "Astrologer", 
                 text = { 
-                    {
-                        "{C:attention}+#1#{} pick in {C:planet}Celestial Packs" 
-                    },
-                    {
-                        "{C:planet}Planet{} cards are replaced",
-                        "by their {C:mult}Mult{} variant in {C:attention}odd",
-                        "antes and their {C:chips}Chips",
-                        "variant in {C:attention}even{} antes"
-                    },
+                    'Choose {C:attention}+#1#{} more card',
+                    'from every {C:planet}Celestial Pack'
                 } 
             },
             j_aij_planetarium = { 
                 name = "Planetarium", 
-                text = { 
-                    {
-                        "{C:chips}Chip{} type {C:planet}planet{} cards in",
-                        "your {C:attention}consumable{} area give",
-                        "{C:chips}+#1#{} Chips for their specified",
-                        "{C:attention}poker hand" 
-                    },
-                    {
-                        "{C:mult}Mult{} type {C:planet}planet{} cards in",
-                        "your {C:attention}consumable{} area give",
-                        "{C:mult}+#2#{} Mult for their specified",
-                        "{C:attention}poker hand" 
-                    },
-                } 
+                text = {
+                    "Create {C:attention}The High Priestess",
+                    "when a {C:attention}Celestial Pack{} is opened",
+                    "{C:inactive}(Must have room)"
+                }
             },
             j_aij_negative_space = { 
                 name = "Negative Space", 
@@ -3153,22 +3154,20 @@ return {
             j_aij_cubic_joker = { name = "Cubic Joker", text = { "" } },
             j_aij_remina = { 
                 name = "Remina", 
-                text = { 
+                text = {
                     {
-                        "When {C:attention}Small Blind{} or {C:attention}Big",
-                        "Blind{C:attention} selected, {C:red}destroy{} all",
-                        "{C:planet}Planet{} cards held in your",
-                        "{C:attention}consumable{} area",
-                        "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                        "When a {C:attention}non-Boss Blind{}",
+                        "is selected, {C:red}destroy{} all",
+                        "held {C:planet}Planet{} cards",
                     },
                     {
-                        "This Joker gains {C:chips}Chips{} and",
-                        "{C:mult}Mult{} equal to the base",
-                        "increases of the {C:red}destroyed",
-                        "{C:planet}Planets",
-                        "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips){}"
+                        "This Joker gains the",
+                        "{C:chips}Chips{} and {C:mult}Mult{} of each",
+                        "destroyed {C:planet}Planet",
+                        "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips){}",
+                        "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
                     }
-                } 
+                }
             },
             j_aij_jpeg = { name = ".jpeg", text = { "" } },
             j_aij_sherrif = { 
@@ -3181,10 +3180,10 @@ return {
             j_aij_alien_joker = { 
                 name = "Alien Joker", 
                 text = { 
-                    "{C:attention}Forces 1{} card to be",
-                    "selected each hand",
-                    "{C:attention}Force-selected{} card gives",
-                    "{X:mult,C:white}X#1#{} Mult when scored" 
+                    {"{C:attention}Forces 1{} card to be",
+                    "selected each hand"},
+                    {"{C:attention}Force-selected{} card gives",
+                    "{X:mult,C:white}X#1#{} Mult when scored"} 
                 } 
             },
             j_aij_nobody = { 
@@ -3332,9 +3331,9 @@ return {
             j_aij_a_young_hamlet = { 
                 name = "A Young Hamlet", 
                 text = {
-                    "This Joker gains {C:mult}+#2#{} Mult",
+                    "This Joker gains {C:white,X:mult}X#2#{} Mult",
                     "every {C:attention}#3#{C:inactive} [#4#]{} cards {C:red}discarded{}",
-                    "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)"
+                    "{C:inactive}(Currently {C:white,X:mult}X#1#{C:inactive} Mult)"
                 } 
             },
             j_aij_mike_check = { 
@@ -3372,8 +3371,8 @@ return {
              j_aij_bad_guy = { 
                 name = "Bad Guy", 
                 text = {
-                    "Apply {C:attention}Foil{} to a random",
-                    "card {C:attention}held in hand{} when",
+                    "Apply {C:attention}Foil{} to 2 random",
+                    "cards {C:attention}held in hand{} when",
                     "{C:attention}Boss Blind{} is defeated"
                 } 
             },
@@ -4193,14 +4192,17 @@ return {
             c_aij_shade = {
                 name = 'Shade',
                 text = {
-                    'Add {C:dark_edition}Negative{} edition',
-                    'to {C:attention}1{} random',
-                    'card in hand'
+                    {'{C:green}#1# in #2#{} chance',
+                    'to do nothing'},
+                    {'Otherwise, add {C:dark_edition}Negative{}',
+                    'edition to {C:attention}1{} random',
+                    'card in hand'}
                 }
             },
             c_aij_trefle = {
                 name = 'Trèfle',
                 text = {
+                    '{C:red}Destroy{}, then',
                     '{C:attention}Reroll{} one',
                     'selected {C:attention}Joker',
                     "{C:inactive}(Cannot be{}",
@@ -4210,27 +4212,31 @@ return {
             c_aij_scopophobia = {
                 name = 'Scopophobia',
                 text = {
-                    '{C:red}Destroys{} a random {C:attention}Joker',
-                    'and {C:attention}all cards{} held in',
-                    'hand'
+                    {'Tries to {C:red}destroy{}',
+                    'a random {C:attention}Joker'},
+                    {'Create up to {C:attention}2',
+                    'random {C:attention}Statements',
+                    '{C:inactive}(Must have room)'}
                 }
             },
             c_aij_reshape = {
                 name = 'Reshape',
                 text = {
-                    'Turn all {C:attention}Jokers{} into copies',
-                    'of a random held {C:attention}Joker',
-                    '{C:inactive}(Jokers keep their original',
-                    '{C:inactive}stickers and editions)'
+                    {'{C:attention,E:1}Randomizes{} the suit and',
+                    'rank of all cards',
+                    'held in hand'},
+                    {'{C:attention,E:1}Randomizes{} the {C:attention}enhancement{},',
+                    '{C:dark_edition}edition{}, and {C:attention}seal{} of each card',
+                    'that {C:attention}already has one'}
                 }
             },
             c_aij_palmistry = {
                 name = 'Palmistry',
                 text = {
-                    'Gives all cards',
+                    {'Gives all cards',
                     'in hand a random',
-                    '{C:attention}enhancement,',
-                    '{C:red}-#1#{} hand size'
+                    '{C:attention}enhancement'},
+                    {'{C:red}-#1#{} hand size'}
                 }
             },
             c_aij_gegenschein = {

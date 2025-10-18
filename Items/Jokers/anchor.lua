@@ -1,26 +1,26 @@
-local anchor = {
-    object_type = "Joker",
-    order = 59,
-    key = "anchor",
-    config = {
+---- local anchor = {
+----     object_type = "Joker",
+----     order = 59,
+----     key = "anchor",
+----     config = {
       
-    },
-    rarity = 2,
-    pos = { x = 5, y = 2 },
-    atlas = 'joker_atlas',
-    cost = 6,
-    unlocked = true,
-    discovered = false,
-    blueprint_compat = false,
-    eternal_compat = true,
+----     },
+----     rarity = 2,
+----     pos = { x = 5, y = 2 },
+----     atlas = 'joker_atlas',
+----     cost = 6,
+----     unlocked = true,
+----     discovered = false,
+----     blueprint_compat = false,
+----     eternal_compat = true,
   
-    loc_vars = function(self, info_queue, card)
+----     loc_vars = function(self, info_queue, card)
   
-    end,
+----     end,
   
-    calculate = function(self, card, context)
+----     calculate = function(self, card, context)
       
-    end
+----     end
   
-}
-return { name = {"Jokers"}, items = {anchor} }
+---- }
+---- return { name = {"Jokers"}, items = {anchor} }

@@ -8,7 +8,7 @@ local bonus_bob = {
             xchips = 1.5
         }
     },
-    rarity = 2,
+    rarity = 3,
     pos = { x = 7, y = 12},
     atlas = 'joker_atlas',
     cost = 6,

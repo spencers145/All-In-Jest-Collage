@@ -6,13 +6,13 @@ local clowns_on_parade = {
     config = {
       extra = {
         chips = 0,
-        chip_mod = 20
+        chip_mod = 25
       }
     },
-    rarity = 2,
+    rarity = 3,
     pos = { x = 17, y = 4 },
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -29,24 +29,18 @@ local clowns_on_parade = {
     end,
   
   calculate = function(self, card, context)
-    local twos = 0
+    local threes = 0
     if context.before and not context.blueprint then
       for k, v in ipairs(context.full_hand) do
-        if v:get_id() == 2 then
-          twos = twos + 1
+        if v:get_id() == 3 then
+          threes = threes + 1
         end
       end
-      if twos >= 3 then
-        SMODS.scale_card(card, {
-	        ref_table = card.ability.extra,
-            ref_value = "chips",
-	        scalar_value = "chip_mod",
-            operation = '+',
-            scaling_message = {
-	            message = localize('k_upgrade_ex'),
-	            colour = G.C.FILTER
-            }
-        })
+      if threes >= 3 then
+        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod
+        return {
+          message = localize('k_upgrade_ex'),
+        }
       end
     end
     if context.joker_main then

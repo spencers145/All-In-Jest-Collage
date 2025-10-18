@@ -5,13 +5,13 @@ local feedback_form = {
     key = "feedback_form",
     config = {
       extra = {
-          mult = 7
+          mult = 3
       }
     },
     rarity = 1,
     pos = { x = 23, y = 6},
     atlas = 'joker_atlas',
-    cost = 4,
+    cost = 5,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -27,21 +27,19 @@ local feedback_form = {
   
     calculate = function(self, card, context)
         if context.joker_main then
-            local temp_val = true
+            local different = true
             local enhancements = {}
             for i = 1, #context.scoring_hand do
-                for k, v in pairs(enhancements) do
-                    if SMODS.get_enhancements(context.scoring_hand[i]).k then
-                        temp_val = false
-                    end
-                end
                 for k, v in pairs(SMODS.get_enhancements(context.scoring_hand[i])) do
+                    if enhancements[k] == v then
+                        different = false
+                    end
                     enhancements[k] = v
                 end
             end
-            if temp_val then
+            if different then
                 return {
-                    mult = card.ability.extra.mult
+                    mult = card.ability.extra.mult * #context.scoring_hand
                 }
             end
         end

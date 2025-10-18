@@ -6,7 +6,7 @@ local alexandre = {
   config = {
     extra = {
       mult = 0,
-      mult_mod = 7,
+      mult_mod = 8,
     }
   },
   rarity = 3,

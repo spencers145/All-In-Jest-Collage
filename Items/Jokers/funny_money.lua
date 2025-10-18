@@ -5,13 +5,13 @@ local funny_money = {
     key = "funny_money",
     config = {
       extra = {
-       dollars = 6 
+       dollars = 10
       }
     },
     rarity = 1,
     pos = { x = 22, y = 9},
     atlas = 'joker_atlas',
-    cost = 5,
+    cost = 2,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,

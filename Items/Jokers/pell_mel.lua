@@ -5,13 +5,13 @@ local pell_mel = {
     key = "pell_mel",
     config = {
       extra = {
-        xmult_mod = 0.25,
+        xmult_mod = 0.5,
       }
     },
-    rarity = 1,
+    rarity = 3,
     pos = { x = 10, y = 1 },
     atlas = 'joker_atlas',
-    cost = 5,
+    cost = 8,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,

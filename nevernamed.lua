@@ -161,30 +161,6 @@ SMODS.Atlas {
     frames = 21, 
     atlas_table = 'ANIMATION_ATLAS' 
 }
-SMODS.Gradient {
-    key = 'plasma',
-    colours = {
-        HEX('F9A2E6'), HEX('b288bc')
-    },
-    cycle = 5,
-    interpolation = 'trig'
-}
-SMODS.Gradient {
-    key = 'silver',
-    colours = {
-        HEX('afbbca'), HEX('9cacbe')
-    },
-    cycle = 5,
-    interpolation = 'trig'
-}
-SMODS.Gradient {
-    key = 'stellar',
-    colours = {
-        HEX('666694'), HEX('7a73bb')
-    },
-    cycle = 5,
-    interpolation = 'trig'
-}
 AllInJest = {}
 assert(SMODS.load_file('Utils/context.lua'))()
 assert(SMODS.load_file('Utils/draw.lua'))()

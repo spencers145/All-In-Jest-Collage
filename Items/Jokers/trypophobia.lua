@@ -5,13 +5,13 @@ local trypophobia = {
     key = "trypophobia",
     config = {
       extra = {
-        mult = 20,
+        mult = 8,
       }
     },
-    rarity = 1,
-    pos = All_in_Jest.config.alter_trypophobia and { x = 3, y = 14 } or { x = 15, y = 0 },
+    rarity = 2,
+    pos = { x = 15, y = 0 },
     atlas = 'joker_atlas',
-    cost = 4,
+    cost = 5,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -37,7 +37,7 @@ local trypophobia = {
         end
        if eights == all_cards then 
           return {
-            mult = card.ability.extra.mult,
+            mult = eights * card.ability.extra.mult,
           }
         end
       end

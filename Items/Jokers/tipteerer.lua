@@ -25,7 +25,7 @@ local tipteerer = {
           sell_cost = sell_cost + G.jokers.cards[i].sell_cost
         end
       end
-      card.ability.extra.money = math.ceil(sell_cost / 5)
+      card.ability.extra.money = math.ceil(sell_cost * 0.3)
     end
     return {
       vars = {
@@ -45,7 +45,7 @@ local tipteerer = {
         end
       end
     end
-    card.ability.extra.money = math.ceil(sell_cost / 5)
+    card.ability.extra.money = math.ceil(sell_cost * 0.3)
     if card.ability.extra.money > 0 then
       local dollar_bonus = card.ability.extra.money or 0
       return 

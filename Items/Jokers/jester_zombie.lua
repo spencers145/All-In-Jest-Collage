@@ -3,7 +3,9 @@ local jester_zombie = {
     order = 236,
     key = "jester_zombie",
     config = {
-      
+        extra = {
+            odds = 2
+        }
     },
     rarity = 2,
     pos = { x = 4, y = 9},
@@ -15,48 +17,37 @@ local jester_zombie = {
     eternal_compat = true,
   
     loc_vars = function(self, info_queue, card)
-        local active_text = localize('k_inactive')
-        if G.GAME.jest_jester_zombie_trigger then 
-            active_text = localize('k_active')
-        else
-            active_text = localize('k_inactive')
-        end
+        info_queue[#info_queue+1] = { key = "c_collagexdread_rotten", set = "Other" }
+        local n,d = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'jester_zombie')
         return { vars = {
-            active_text
+            n,d
         }}
     end,
   
     calculate = function(self, card, context)
-      print(G.GAME.jest_jester_zombie_trigger)
-      if context.repetition and context.cardarea == G.play then
-            for i = 1, #context.scoring_hand do
-                if G.GAME.jest_jester_zombie_trigger then
-                    return {
-                        repetitions = 1,
-                        card = card,
-                        message = localize('k_again_ex')
-                    }  
-                end
+        if context.open_booster and not context.blueprint then
+            if (context.open_booster and context.card.config.center.kind ~= 'Standard' and context.card.config.center.kind ~= 'Buffoon') then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        forced_message("BRAINS...", card, G.C.PURPLE)
+                        if G.pack_cards and G.pack_cards.cards and G.pack_cards.cards[1] and G.pack_cards.VT.y < G.ROOM.T.h then
+                            if SMODS.pseudorandom_probability(card, pseudoseed('jester_zombie'), 1, card.ability.extra.odds, 'jester_zombie') then
+                                local chosen = pseudorandom_element(G.pack_cards.cards)
+                                G.E_MANAGER:add_event(Event({
+                                    trigger = 'after',
+                                    delay = 1,
+                                    func = function()
+                                        rot_card(chosen, card, true)
+                                        return true
+                                    end
+                                }))
+                            end
+                            return true
+                        end
+                    end
+                }))
             end
         end
     end
-  
 }
-local ease_roundref = ease_round
-function ease_round(mod)
-    if mod ~= 0 then
-        G.GAME.jest_jester_zombie_trigger = false
-    end
-    
-    local ref = ease_roundref(mod)
-    return ref
-end
-local start_dissolve_ref = Card.start_dissolve
-function Card:start_dissolve(dissolve_colours, silent, dissolve_time_fac, no_juice)
-  local ref = start_dissolve_ref(self, dissolve_colours, silent, dissolve_time_fac, no_juice)
-  if G.jokers and (self.ability.set == 'Enhanced' or self.ability.set == 'Default') then
-      G.GAME.jest_jester_zombie_trigger = true
-  end
-  return ref
-end
 return { name = {"Jokers"}, items = {jester_zombie} }

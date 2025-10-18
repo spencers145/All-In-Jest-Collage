@@ -23,6 +23,9 @@ local chaos = {
     end,
 
     apply = function(self, tag, context)
+        if math.random() > 0.9 then
+            unlock_card(G.P_CENTERS.b_ortalab_hoarder)
+        end
         local effect_index = math.random(1, #self.config.effects) 
         local effect = self.config.effects[effect_index]
         local trigger = false
@@ -33,6 +36,7 @@ local chaos = {
                 trigger = #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit
             elseif effect == "dupe_joker" then
                 trigger = (#G.jokers.cards <= G.jokers.config.card_limit and #G.jokers.cards > 0)
+                unlock_card(G.P_CENTERS.b_ortalab_hoarder)
             elseif effect == "apply_edition" then
                 if #G.jokers.cards > 0 then
                     for i = 1, #G.jokers.cards do
@@ -53,8 +57,11 @@ local chaos = {
         if context.type == 'new_blind_choice' then
             tag:jest_apply("+", G.C.ATTENTION, function()
                 if effect == "money" then
-                    local money = math.random(1,50)
+                    local money = math.random(5,25)
                     ease_dollars(money)
+                    if money > 20 then
+                        unlock_card(G.P_CENTERS.b_ortalab_hoarder)
+                    end
                 elseif effect == "boss_reroll" then
                     local bosses = {}
                     for k, v in pairs(G.P_BLINDS) do

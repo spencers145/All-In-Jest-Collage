@@ -471,7 +471,7 @@ if not SMODS.ObjectTypes.Food then
 end
 
 --Aureate Coin, The Clay
-local ease_anteref = ease_ante
+--[[local ease_anteref = ease_ante
 function ease_ante(mod)
     if mod ~= 0 then
         G.P_BLINDS['bl_aij_aureate_coin'].mult = (G.GAME.dollars * 0.1) + 2
@@ -505,13 +505,13 @@ function ease_ante(mod)
     
     local ref = ease_anteref(mod)
     return ref
-end
+end]]
 SMODS.jest_Badge = {
     key = "jest_chaotic_card",
     badge_colour = HEX '8F00FF',
 }
 
-SMODS.PokerHand {
+--[[SMODS.PokerHand {
     key = "Royal Flush",
     mult = 8,
     chips = 100,
@@ -540,9 +540,9 @@ SMODS.PokerHand {
     visible = function(self)
         return false
     end,
-}
+}]]
 
-local init_game_object_ref = Game.init_game_object
+--[[local init_game_object_ref = Game.init_game_object
 function Game.init_game_object(self)
   local ret = init_game_object_ref(self)
   local secrets = {}
@@ -555,7 +555,7 @@ function Game.init_game_object(self)
   end
   ret.all_in_jest.secret_hands = secrets
   return ret
-end
+end]]
 
 -- Modified from Aura
 function All_in_Jest.update_frame(dt, k, obj, jkr)

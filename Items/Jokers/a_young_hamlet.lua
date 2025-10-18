@@ -5,16 +5,16 @@ local a_young_hamlet = {
     key = "a_young_hamlet",
     config = {
         extra = {
-            mult = 0,
-            mult_mod = 1,
+            xmult = 1,
+            xmult_mod = 0.05,
             discards = 4,
             discards_remaining = 4,
         }
     },
-    rarity = 1,
+    rarity = 2,
     pos = { x = 20, y = 19 },
     atlas = 'joker_atlas',
-    cost = 4,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -24,8 +24,8 @@ local a_young_hamlet = {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.mult,
-                card.ability.extra.mult_mod,
+                card.ability.extra.xmult,
+                card.ability.extra.xmult_mod,
                 card.ability.extra.discards,
                 card.ability.extra.discards_remaining,
             }
@@ -38,8 +38,8 @@ local a_young_hamlet = {
                 card.ability.extra.discards_remaining = card.ability.extra.discards
                 SMODS.scale_card(card, {
                     ref_table = card.ability.extra,
-                    ref_value = "mult",
-                    scalar_value = "mult_mod",
+                    ref_value = "xmultmult",
+                    scalar_value = "xmult_mod",
                     operation = '+',
                 })
             else
@@ -47,9 +47,9 @@ local a_young_hamlet = {
                 return nil, true
             end
         end
-        if context.joker_main then
+        if context.joker_main and card.ability.extra.xmult > 1 then
             return {
-                mult = card.ability.extra.mult
+                xmult = card.ability.extra.xmult
             }
         end
     end

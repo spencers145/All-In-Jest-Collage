@@ -5,13 +5,13 @@ local vitruvian_joker = {
     key = "vitruvian_joker",
     config = {
       extra = {
-        xmult = 2
+        xmult = 3
       }
     },
-    rarity = 2,
+    rarity = 3,
     pos = { x = 17, y = 10},
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,

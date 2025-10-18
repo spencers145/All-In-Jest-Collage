@@ -6,13 +6,13 @@ local sudoku = {
   config = {
     extra = {
       xmult = 1,
-      bonus = 0.3
+      bonus = 0.5
     }
   },
-  rarity = 2,
+  rarity = 3,
   pos = { x = 9, y = 6},
   atlas = 'joker_atlas',
-  cost = 6,
+  cost = 7,
   unlocked = true,
   discovered = false,
   blueprint_compat = true,

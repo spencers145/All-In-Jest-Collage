@@ -5,10 +5,10 @@ local fuzzy_joker = {
     config = {
       
     },
-    rarity = 1,
+    rarity = 3,
     pos = { x = 6, y = 10},
     atlas = 'joker_atlas',
-    cost = 5,
+    cost = 10,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -21,9 +21,9 @@ local fuzzy_joker = {
     calculate = function(self, card, context)
         if context.joker_main then
             if to_number(mult) <= 0 then return 1 end
-            local power = math.ceil(math.log(to_number(mult), 2))
+            local power = math.ceil(math.log(to_number(mult), 4))
             hand_chips = to_number(hand_chips)
-            Mult = 2 ^ power
+            Mult = 4 ^ power
             if Mult - to_number(mult) > 0 then
             return {
                 mult = Mult - to_number(mult),

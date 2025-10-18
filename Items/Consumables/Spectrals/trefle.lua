@@ -4,7 +4,6 @@ local trefle_spectral = {
     set = 'Spectral',
     pos = { x = 1, y = 4 },
     cost = 4,
-    unlocked = true,
     discovered = false,
     order = 0,
     config = {},

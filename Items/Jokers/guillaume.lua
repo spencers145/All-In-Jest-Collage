@@ -53,10 +53,10 @@ local guillaume = {
       end
     end,
     add_to_deck = function(self, card, from_debuff)
-        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.joker_slots
+        G.jokers:change_size(card.ability.extra.joker_slots)
     end,
     remove_from_deck = function(self, card, from_debuff)
-        G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.joker_slots
+        G.jokers:change_size(-card.ability.extra.joker_slots)
     end,
   
 }

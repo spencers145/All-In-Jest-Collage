@@ -6,8 +6,8 @@ local low_priest = {
   config = {
     extra = {
       mult = 0,
-      initial_mult = 20,
-      mult_mod = 2
+      initial_mult = 3,
+      mult_mod = 0.2
     }
   },
   rarity = 2,
@@ -40,7 +40,7 @@ local low_priest = {
             no_message = true,
         })
       return {
-        mult = math.max(0, card.ability.extra.mult)
+        xmult = math.max(1, card.ability.extra.mult)
       }
     end
   end

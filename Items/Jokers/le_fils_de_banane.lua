@@ -34,15 +34,8 @@ local le_fils_de_banane = {
                 if context.scoring_hand[i]:is_face() then
                     if SMODS.pseudorandom_probability(card, 'le_fils_de_banane', 1, card.ability.extra.odds) and not context.scoring_hand[i].destroyed then
                         card_eval_status_text(context.scoring_hand[i], 'extra', nil, nil, nil, {message = localize('k_extinct_ex'),colour = G.C.FILTER})
-                        table.insert(total_cards, context.scoring_hand[i])
-                        G.E_MANAGER:add_event(Event({
-                            trigger = 'before',
-                            func = function()
-                                context.scoring_hand[i]:start_dissolve()
-                                return true
-                            end
-                        })) 
                         context.scoring_hand[i].destroyed = true
+                        context.scoring_hand[i]:start_dissolve()
                     else
                         card_eval_status_text(context.scoring_hand[i], 'extra', nil, nil, nil, {message = localize('k_safe_ex'),colour = G.C.FILTER})
                     end

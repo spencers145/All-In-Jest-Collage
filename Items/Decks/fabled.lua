@@ -35,15 +35,8 @@ local fabled = {
             end
         end
     end,
-    check_for_unlock = function(self, args)
-        if args.type == 'discover_amount' and G.P_CENTER_POOLS then
-            for i, v in ipairs(G.P_CENTER_POOLS["Joker"]) do
-                if v.rarity == 4 and v.discovered then
-                    return true
-                end
-            end
-        end
-        return false
+	check_for_unlock = function(self, args)
+        return G.PROFILES[G.SETTINGS.profile].career_stats.c_collage_wins >= 10
     end,
     apply = function(self, back)
         G.GAME.jest_legendary_pool.in_shop = true

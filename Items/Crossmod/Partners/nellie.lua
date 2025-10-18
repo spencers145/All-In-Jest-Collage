@@ -6,7 +6,7 @@ local nellie = {
   key = "nellie",
   config = {
     extra = {
-      edition_rate = 2,
+      edition_rate = 3,
     }
   },
   pos = { x = 2, y = 0},
@@ -17,7 +17,7 @@ local nellie = {
   loc_vars = function(self, info_queue, card)
     local link_level = self:get_link_level()
     local benefits = 1
-    if link_level == 1 then benefits = 2.5 end
+    if link_level == 1 then benefits = 3 end
     return {
       vars = {
         card.ability.extra.edition_rate * benefits,

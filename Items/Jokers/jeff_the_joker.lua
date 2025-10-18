@@ -9,7 +9,7 @@ local jeff_the_joker = {
           x_mult_per_destroy = 0.5,
       }
   },
-  rarity = 2,
+  rarity = 3,
   pos = { x = 9, y = 3 },
   atlas = 'joker_atlas',
   cost = 6,

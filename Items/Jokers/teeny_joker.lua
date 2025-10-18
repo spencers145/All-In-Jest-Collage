@@ -5,7 +5,7 @@ local teeny_joker = {
   key = "teeny_joker",
   config = {
     extra = {
-      chips = 150,
+      chips = 120,
     }
   },
   rarity = 1,

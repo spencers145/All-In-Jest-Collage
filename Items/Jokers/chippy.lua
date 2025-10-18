@@ -47,7 +47,7 @@ local chippy = {
             }
         })
       end
-      if context.joker_main and to_number(card.ability.extra.chips) > 0 then
+      if context.joker_main and to_big(card.ability.extra.chips) > to_big(0) then
         return {
           chips = to_number(card.ability.extra.chips),
         }

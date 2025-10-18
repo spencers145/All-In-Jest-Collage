@@ -5,8 +5,8 @@ local mr_lonely = {
   key = "mr_lonely",
   config = {
     extra = {
-      chips = 0,
-      chip_mod = 10
+      mult = 0,
+      mult_mod = 2
     }
   },
   rarity = 2,
@@ -22,8 +22,8 @@ local mr_lonely = {
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        card.ability.extra.chip_mod,
-        card.ability.extra.chips
+        card.ability.extra.mult_mod,
+        card.ability.extra.mult
       }
     }
   end,
@@ -37,15 +37,8 @@ local mr_lonely = {
       G.E_MANAGER:add_event(Event({
         func = function()
           if (G.jokers.config.card_limit - #G.jokers.cards) > 0 then
-            SMODS.scale_card(card, {
-	            ref_table = card.ability.extra,
-                ref_value = "chips",
-	            scalar_value = "chip_mod",
-                operation = function(ref_table, ref_value, initial, change)
-	                ref_table[ref_value] = initial + change * (G.jokers.config.card_limit - #G.jokers.cards)
-                end,
-                no_message = true,
-            })
+            card.ability.extra.mult = card.ability.extra.mult +
+                card.ability.extra.mult_mod * (G.jokers.config.card_limit - #G.jokers.cards)
             return true
           else
             return true
@@ -64,9 +57,9 @@ local mr_lonely = {
         return true
       end
     end
-    if context.joker_main and card.ability.extra.chips > 0 then
+    if context.joker_main and card.ability.extra.mult > 0 then
       return {
-        chips = card.ability.extra.chips,
+        mult = card.ability.extra.mult,
       }
     end
     if context.setting_blind then

@@ -1,26 +1,26 @@
-local bartender = {
-    object_type = "Joker",
-    order = 275,
-    key = "bartender",
-    config = {
+---- local bartender = {
+----     object_type = "Joker",
+----     order = 275,
+----     key = "bartender",
+----     config = {
       
-    },
-    rarity = 1,
-    pos = { x = 23, y = 10},
-    atlas = 'joker_atlas',
-    cost = 4,
-    unlocked = true,
-    discovered = false,
-    blueprint_compat = false,
-    eternal_compat = true,
+----     },
+----     rarity = 1,
+----     pos = { x = 23, y = 10},
+----     atlas = 'joker_atlas',
+----     cost = 4,
+----     unlocked = true,
+----     discovered = false,
+----     blueprint_compat = false,
+----     eternal_compat = true,
   
-    loc_vars = function(self, info_queue, card)
+----     loc_vars = function(self, info_queue, card)
   
-    end,
+----     end,
   
-    calculate = function(self, card, context)
+----     calculate = function(self, card, context)
         
-    end
+----     end
   
-}
-return { name = {"Jokers"}, items = {bartender} }
+---- }
+---- return { name = {"Jokers"}, items = {bartender} }

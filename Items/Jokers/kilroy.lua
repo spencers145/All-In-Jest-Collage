@@ -4,7 +4,7 @@ local kilroy = {
 
     key = "kilroy",
     config = {
-      extra = {modchips = 50, curchips = 0}
+      extra = {modchips = 75, curchips = 0}
     },
     rarity = 1,
     pos = { x = 1, y = 5 },

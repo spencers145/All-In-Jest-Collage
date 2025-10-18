@@ -5,14 +5,14 @@ local honker = {
     key = "honker",
     config = {
       extra = {
-          mult_mod = 1,
-          cur_mult = 0
+          xmult_mod = 0.05,
+          cur_xmult = 1
       }
     },
     rarity = 2,
     pos = { x = 3, y = 5 },
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = false,
@@ -21,8 +21,8 @@ local honker = {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.mult_mod,
-                card.ability.extra.cur_mult,
+                card.ability.extra.xmult_mod,
+                card.ability.extra.cur_xmult,
             }
         }
     end,
@@ -30,22 +30,26 @@ local honker = {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if SMODS.get_enhancements(context.other_card).m_mult then
-                SMODS.scale_card(card, {
-	                ref_table = card.ability.extra,
-                    ref_value = "cur_mult",
-	                scalar_value = "mult_mod",
-                    operation = '+',
-                    scaling_message = {
-	                    message = localize('k_upgrade_ex'), 
-                        colour = G.C.FILTER
-                    }
-                })
+                return {
+                    func = function ()
+                        SMODS.scale_card(card, {
+                            ref_table = card.ability.extra,
+                            ref_value = "cur_xmult",
+                            scalar_value = "xmult_mod",
+                            operation = '+',
+                            scaling_message = {
+                                message = localize('k_upgrade_ex'), 
+                                colour = G.C.FILTER
+                            }
+                        })
+                    end
+                }
             end
         end
         if context.joker_main then
-            if card.ability.extra.cur_mult > 0 then
+            if card.ability.extra.cur_xmult > 0 then
                 return {
-                    mult = card.ability.extra.cur_mult
+                    xmult = card.ability.extra.cur_xmult
                 }
             end
         end

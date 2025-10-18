@@ -9,10 +9,10 @@ local scorecard = {
         scorecard_poker_hand = nil
       }
     },
-    rarity = 1,
+    rarity = 2,
     pos = { x = 15, y = 2 },
     atlas = 'joker_atlas',
-    cost = 4,
+    cost = 5,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,

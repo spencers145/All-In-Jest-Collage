@@ -7,10 +7,10 @@ local alien_joker = {
           xmult = 3,
       }
     },
-    rarity = 2,
+    rarity = 3,
     pos = { x = 9, y = 13},
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,

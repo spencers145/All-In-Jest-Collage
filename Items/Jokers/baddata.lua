@@ -99,7 +99,7 @@ local baddata = {
 		},
     },
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -132,7 +132,7 @@ local baddata = {
     end,
   
     calculate = function(self, card, context)
-		local effect = math.random(1,5)
+		local effect = 3 --math.random(1,5)
         if context.joker_main then
 			if effect == 1 then
 				return {
@@ -144,7 +144,7 @@ local baddata = {
 				}
 			elseif effect == 3 then
 				return {
-					xchips = math.random(10,23) * 0.1,
+					xchips = math.random(100,350) * 0.01,
 				}
 			elseif effect == 4 then
 				return {

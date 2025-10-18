@@ -8,7 +8,7 @@ local silent_sam = {
         xmult = 1.2
       }
     },
-    rarity = 2,
+    rarity = 3,
     pos = { x = 20, y = 5 },
     atlas = 'joker_atlas',
     cost = 7,

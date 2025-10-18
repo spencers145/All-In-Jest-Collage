@@ -23,8 +23,13 @@ local bad_guy = {
   
     calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval and context.beat_boss and #G.hand.cards > 0 then
-            local foiled_card = pseudorandom_element(G.hand.cards, "bad_guy")
-            foiled_card:set_edition('e_foil')
+            -- steal the sarc function. i really am the bad guy....................
+            local indices = SARC.get_rand_hand_index(2,nil,nil,nil,true)
+
+            for key, value in pairs(indices) do
+                G.hand.cards[value]:set_edition('e_foil')
+            end
+
             return {
                 message = localize('k_aij_foiled_again'),
             }

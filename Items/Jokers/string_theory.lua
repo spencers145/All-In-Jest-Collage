@@ -1,3 +1,17 @@
+local get_straight_ref = get_straight
+
+function get_straight(hand, min_length, skip, wrap)
+    if not next(SMODS.find_card("j_aij_string_theory")) or #hand == 0 then return get_straight_ref(hand, min_length, skip, wrap)
+    else
+        local straight = {}
+        for _,v in ipairs(hand) do
+            straight[#straight+1] = v
+        end
+        local ret = {}
+        ret[1] = straight
+        return ret
+    end
+end
 local string_theory = {
     object_type = "Joker",
     order = 94,
@@ -6,10 +20,10 @@ local string_theory = {
     config = {
       
     },
-    rarity = 2,
+    rarity = 3,
     pos = { x = 14, y = 3 },
     atlas = 'joker_atlas',
-    cost = 6,
+    cost = 8,
     unlocked = true,
     discovered = false,
     blueprint_compat = false,
